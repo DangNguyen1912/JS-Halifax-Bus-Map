@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Halifax Bus Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="leaflet-rotatedmarker.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Control Panel -->
+    <div id="controls">
+        <h3 style="margin-top: 0; color: #2c3e50;">🚌 Bus Tracker Controls</h3>
+
+        <!-- Route Filter -->
+        <div id="filter-controls" class="control-group">
+            <label>Filter by Route:</label>
+            <div class="route-checkboxes" id="route-filters">
+                <!-- Routes will be populated by JavaScript -->
+            </div>
+            <button onclick="toggleAllRoutes(true)">Select All</button>
+            <button onclick="toggleAllRoutes(false)">Deselect All</button>
+        </div>
+
+        <!-- Bus Icon Selector -->
+        <div class="control-group">
+            <label for="bus-icon-select">Bus Icon Style:</label>
+            <select id="bus-icon-select" onchange="changeBusIcon(this.value)">
+                <option value="bus1.png">Bus Icon 1</option>
+                <option value="bus2.png">Bus Icon 2</option>
+                <option value="bus3.png">Bus Icon 3</option>
+                <option value="bus4.png">Bus Icon 4</option>
+            </select>
+        </div>
+
+        <!-- Auto Refresh Status -->
+        <div class="control-group">
+            <label>Auto Refresh: <span id="refresh-status">ON</span></label>
+            <button onclick="toggleAutoRefresh()">Toggle Auto Refresh</button>
+        </div>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map-wrapper" style="width: 100%; height:100%; position: fixed;">
+        <div id="theMap" style="width: 100%; height:100%; position: relative;"></div>
+    </div>
+
+    <script src='main.js'></script>
+</body>
+
+</html>
